@@ -10,7 +10,7 @@ BACKOFFICE |Ajout de membres {% endif %}
 </h1>
 
 
-{{ form_start(formUser, {
+{{ form_start(formMembre, {
     attr: {
     novalidate: 'novalidate'
     }
@@ -19,35 +19,26 @@ BACKOFFICE |Ajout de membres {% endif %}
 
 
 
-{{ form_row(formUser.pseudo, {
+{{ form_row(formMembre.pseudo, {
     label: "pseudo",
     attr: {
         placeholder: "pseudo"
     }
 }) }}
-{{ form_row(formUser.password, {
+{{ form_row(formMembre.password, {
     label:"password",
     attr: {
         placeholder: "password"
     }
 }) }}
-{{ form_row(formUser.nom)}}
+{{ form_row(formMembre.nom)}}
 
-{{ form_row(formUser.prenom)}}
-{{ form_row(formUser.civilte)}}
-{{ form_row(formUser.prenom)}}
-{{ form_row(formUser.statut) }}
+{{ form_row(formMembre.prenom)}}
+{{ form_row(formMembre.civilte)}}
     
 
-{{ form_row(formVehicule.date_enregistrement, {
-    label: "date d enregistrement"
-})}}
 
 
-
-{{ form_row(formVehicule.description, {
-    label: "description"
-})}}
 
 
 
@@ -60,6 +51,6 @@ BACKOFFICE |Ajout de membres {% endif %}
 {% endif %}
 </button>
 
-{{ form_end(formCommande)}}
+{{ form_end(formMembre)}}
 
 {% endblock %}

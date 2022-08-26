@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Entity\User;
+use App\Form\UserType;
 use App\Entity\Commande;
 use App\Entity\Vehicule;
 use App\Form\CommandeType;
@@ -115,7 +116,7 @@ $manager->persist($membre);
 $manager->flush();
 return $this->redirectToRoute('admin_membres');
 }
-return $this->renderForm("admin/membre_form.html.twig", [
+return $this->renderForm("admin/membres_form.html.twig", [
 'formMembre' => $form,
 'editMode' => $membre->getId() !== NULL
 ]);
