@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<h1>
+{% if editMode %}
+BACKOFFICE | Modification de membres
+{% else %}
+BACKOFFICE |Ajout de membres {% endif %}
+</h1>
+
+
+{{ form_start(formUser, {
+    attr: {
+    novalidate: 'novalidate'
+    }
+})}}
+
+
+
+
+{{ form_row(formUser.pseudo, {
+    label: "pseudo",
+    attr: {
+        placeholder: "pseudo"
+    }
+}) }}
+{{ form_row(formUser.password, {
+    label:"password",
+    attr: {
+        placeholder: "password"
+    }
+}) }}
+{{ form_row(formUser.nom)}}
+
+{{ form_row(formUser.prenom)}}
+{{ form_row(formUser.civilte)}}
+{{ form_row(formUser.prenom)}}
+{{ form_row(formUser.statut) }}
+    
+
+{{ form_row(formVehicule.date_enregistrement, {
+    label: "date d enregistrement"
+})}}
+
+
+
+{{ form_row(formVehicule.description, {
+    label: "description"
+})}}
+
+
+
+
+<button type="submit" class="btn btn-primary mt-2">
+{% if editMode %}
+    Enregistrer les modification
+{% else %}
+    Ajouter commandes
+{% endif %}
+</button>
+
+{{ form_end(formCommande)}}
+
+{% endblock %}

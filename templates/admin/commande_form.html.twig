@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<h1>
+{% if editMode %}
+BACKOFFICE | Modification de commande
+{% else %}
+BACKOFFICE |Ajout de commande {% endif %}
+</h1>
+
+
+{{ form_start(formCommande, {
+    attr: {
+    novalidate: 'novalidate'
+    }
+})}}
+
+
+
+
+{{ form_row(formCommande.user, {
+    label: "utilisateur",
+    
+}) }}
+{{ form_row(formCommande.vehicule, {
+    label:"vehicule",
+    
+}) }}
+{{ form_row(formCommande.date_heure_depart)}}
+
+{{ form_row(formCommande.date_heure_fin)}}
+
+{{ form_row(formCommande.prix_total, {
+    label: "prix total"
+})}}
+
+
+{{ form_row(formCommande.date_enregistrement, {
+    label: "date d enregistrement"
+})}}
+
+
+
+
+
+
+
+<button type="submit" class="btn btn-primary mt-2">
+{% if editMode %}
+    Enregistrer les modification
+{% else %}
+    Ajouter commandes
+{% endif %}
+</button>
+
+{{ form_end(formCommande)}}
+
+{% endblock %}

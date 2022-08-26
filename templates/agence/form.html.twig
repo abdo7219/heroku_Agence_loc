@@ -1,0 +1,86 @@
+<div class="container col-8">
+{{ form_start(formVehicules, {
+    attr: {
+    novalidate: 'novalidate'
+    }
+})}}
+
+
+
+
+ 
+ {{ form_row(formVehicules.titre, {
+    label: "titre",
+    attr: {
+        placeholder: "titre"
+    }
+}) }}
+<br>
+{{ form_row(formVehicules.marque, {
+    label:"marque",
+    attr: {
+        placeholder: "marque"
+    }
+}) }}
+<br>
+{{ form_row(formVehicules.modelee,{
+        label:"modele",
+        attr: {
+            placeholder: "modele"
+        }
+        }
+
+)}}
+<br>
+{{ form_row(formVehicules.description,{
+        label:"description",
+        attr: {
+            placeholder: "description"
+        }
+        }
+
+)}}
+<br>
+{{ form_row(formVehicules.photo,{
+        label:"photo",
+        attr: {
+            placeholder: "photo"
+        }
+        }
+
+)}}
+<br>
+{{ form_row(formVehicules.prixJournalier,{
+        label:"prix_journalier",
+        attr: {
+            placeholder: "prix_journalier"
+        }
+        }
+
+)}}
+<br>
+{{ form_row(formVehicules.dateEnregistrement,{
+        label:"date_enregistrement",
+        attr: {
+            placeholder: "date_enregistrement"
+        }
+        }
+
+)}}
+<br>
+
+
+
+<br> 
+<button type="submit" class="btn btn-primary mt-2">
+{% if editMode %}
+    Enregistrer les modification
+{% else %}
+    Ajouter Vehicule
+{% endif %}
+</button>
+
+{{ form_end(formVehicules)}}
+<p class="text-center"><a href=" {{ path('app_agence') }}" class="btn btn-primary mt-5"></a></p>
+</div>
+ {% endblock %}
