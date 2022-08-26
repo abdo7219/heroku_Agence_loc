@@ -56,7 +56,7 @@ $form->handleRequest($superglobals);
         {
             $manager->persist($vehicule);
             $manager->flush();
-            return $this->redirectToRoute('admin_vehicule');
+            return $this->redirectToRoute('admin_vehicules');
         }
         return $this->renderForm("admin/vehicule_form.html.twig", [
             'formVehicule' => $form,
@@ -78,7 +78,7 @@ $form->handleRequest($superglobals);
   $this->addFlash('success', "le vehicule a bien été supprimé !");
   
   
-  return $this->redirectToRoute(("admin_vehicule"));
+  return $this->redirectToRoute(("admin_vehicules"));
   }
   
 #"########################################################################################################################
@@ -113,7 +113,7 @@ if($form->isSubmitted() && $form->isValid())
 {
 $manager->persist($membre);
 $manager->flush();
-return $this->redirectToRoute('admin_membre');
+return $this->redirectToRoute('admin_membres');
 }
 return $this->renderForm("admin/membre_form.html.twig", [
 'formMembre' => $form,
@@ -135,7 +135,7 @@ $manager->flush();
 $this->addFlash('success', "le membre a bien été supprimé !");
 
 
-return $this->redirectToRoute(("admin_membre"));
+return $this->redirectToRoute(("admin_membres"));
 }
 
 // #########################################################################"""
@@ -172,7 +172,7 @@ if($form->isSubmitted() && $form->isValid())
 {
 $manager->persist($commande);
 $manager->flush();
-return $this->redirectToRoute('admin_commande');
+return $this->redirectToRoute('admin_commandes');
 }
 return $this->renderForm("admin/commande_form.html.twig", [
 'formCommande' => $form,
@@ -194,7 +194,7 @@ $manager->flush();
 $this->addFlash('success', "la commande a bien été suprimé !");
 
 
-return $this->redirectToRoute(("admin_commande"));
+return $this->redirectToRoute(("admin_commandes"));
 }
 
 

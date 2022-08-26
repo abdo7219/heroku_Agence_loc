@@ -28,59 +28,26 @@ class AgenceController extends AbstractController
 
     #[Route('/', name: 'home')]
     public function home(VehiculeRepository $repo): Response
-    { $vehicules = $repo->findAll();
+    {
+        $vehicules = $repo->findAll();
         return $this->render('agence/home.html.twig', [
             'tabvehicules' => $vehicules
-            
+
         ]);
     }
 
-   #[Route('/agence/show/{id}', name: 'agence_show')]
+    #[Route('/agence/show/{id}', name: 'agence_show')]
+
+    public function show($id, VehiculeRepository $repo): Response
+
+    {
+        $vehicule = $repo->find($id);
+
+        return $this->render('agence/show.html.twig', [
+            'vehicule' => $vehicule
+        ]);
+    }
+
+
    
-   public function show($id, VehiculeRepository $repo, Request $superglobals, EntityManagerInterface $manager): Response
-
-{
-$vehicule = $repo->find($id);
-
-return $this->render('agence/show.html.twig',[
-    'vehicule' => $vehicule]);
 }
-
-
-#[Route('/agence/new', name: 'vehicule_create')]
-#[Route('/agence/edit/{id}', name: 'vehicule_edit')]
-public function form(Request $superglobals, EntityManagerInterface $manager, Vehicule $vehicule = null)
-{
-if($vehicule == null){
-
-    $vehicule = new Vehicule;
-    //$vehicule->setCreatedAt(new \Datetime());
-
-}
-$form = $this->createForm(VehiculeType::class, $vehicule);
-
-$form->handleRequest($superglobals);
-
-dump($vehicule);
-
-
-if($form->isSubmitted() && $form->isValid())
-{
-    $manager->persist($vehicule);
-    $manager->flush();
-    return $this->redirectToRoute('agence_show', [
-        'id' => $vehicule->getId()
-    ]);
-}
-
-}
-
-
-
-
-
-
-}
-
-
-
