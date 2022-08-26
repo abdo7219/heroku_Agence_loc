@@ -1,30 +1,29 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-{% for message in app.flashes('success') %}
-    
-    <div class="alert alert-success text-center">{{ message }}</div>
+	{% for message in app.flashes('success') %}
 
-{% endfor %}
+		<div class="alert alert-success text-center">{{ message }}</div>
+
+	{% endfor %}
 
 
-<a href="{{ path('admin_new_membre')}}" class="btn btn-success my-2">Ajouter de membre</a>
+	<a href="{{ path('admin_new_membre')}}" class="btn btn-success my-2">Ajout de membre</a>
 
 	<table class="table">
 		<thead>
 			<tr>
 
-				
-					<th>#</th>
-					<th>pseudo</th>
-					<th>nom</th>
-					<th>prenom</th>
-					<th>email</th>
-					<th>civilte</th>
-					
-					<th>date enregistrement</th>
 
-				
+				<th>#</th>
+				<th>pseudo</th>
+				<th>nom</th>
+				<th>prenom</th>
+				<th>email</th>
+				<th>civilte</th>
+
+				<th>date enregistrement</th>
+
 
 				{# <th>Action</th> #}
 				<th>Edit</th>
@@ -41,17 +40,11 @@
 					<td>{{ membre.prenom}}</td>
 					<td>{{ membre.email}}</td>
 					<td>{{ membre.civilte}}</td>
-					
-                    
-                    
-                    
-                    
-                    
-                      
+
+
 					<td>{{ membre.dateEnregistrement|date('d/m/Y à H:i:s') }}</td>
 
-					
-					
+
 					<td>
 						<a href="{{ path('admin_edit_membre', {id:membre.id}) }}" class="text-success">
 							<i class="fas fa-edit"></i>
