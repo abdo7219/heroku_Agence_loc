@@ -3,13 +3,13 @@
 namespace App\Controller;
 
 
-// use app\Entity\Vehicule;
-// use app\Entity\User;
-// use App\Form\VehiculeType;
+use app\Entity\Vehicule;
+use app\Entity\User;
+use App\Form\VehiculeType;
 use App\Repository\VehiculeRepository;
-// use App\Repository\CommandeRepository;
-// use Doctrine\ORM\EntityManagerInterface;
-// use Symfony\Component\HttpFoundation\Request;
+use App\Repository\CommandeRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,14 +27,32 @@ class AgenceController extends AbstractController
 
 
     #[Route('/', name: 'home')]
-    public function home(VehiculeRepository $repo): Response
-    {
-        $vehicules = $repo->findAll();
-        return $this->render('agence/home.html.twig', [
-            'tabvehicules' => $vehicules
+public function home():Response
+{
+    return $this->render('agence/home.html.twig', [
+'presentation' => 'Agence location voiture',
+'adresse' => '15 rue leblanc marseil 13000',
+'Telephone' => '(+33)0786595254',
+'email' => 'agenceloc.dim@agence.com'
+    ]);
+}
 
-        ]);
-    }
+
+
+    // public function home(VehiculeRepository $repo): Respons
+    // {
+    //     $vehicules = $repo->findAll();
+    //     return $this->render('agence/home.html.twig', [
+    //         'tabvehicules' => $vehicules
+
+    //     ]);
+
+
+    // }
+
+
+
+
 
     #[Route('/agence/show/{id}', name: 'agence_show')]
 
