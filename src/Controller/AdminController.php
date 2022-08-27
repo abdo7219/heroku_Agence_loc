@@ -158,7 +158,7 @@ return $this-> render("admin/admin_commandes.html.twig",
 'champs' => $champs
 ]);
 }
-#[Route('/admine/commande/new', name:'admin_new_commande')]
+#[Route('/admin/commande/new', name:'admin_new_commande')]
 #[Route('/admin/commande/edit/{id}', name:'admin_edit_commande')]
 public function commande_form(Commande $commande = null, Request $superglobals, EntityManagerInterface $manager)
 
