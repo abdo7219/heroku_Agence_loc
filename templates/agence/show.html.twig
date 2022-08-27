@@ -5,10 +5,61 @@
 {% block body %}
 
 
+<section class="row articles">
+		<vehicule class="col-md-6 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+			<h2>{{ vehicule.titre }}</h2>
+			<div class="metadata">
+				{# {{ article.createdAt|date("d/m/Y à H:i:s") }} #}
+				
+				{# {{ article.category.title }}</div> #}
+			<div class="descrption">
+				<img src="{{vehicule.photo }}" alt="" class="img-fluid">
+				<p>{{vehicule.description|raw }}</p>
+			</div>
+		</vehicule>
+        {% if app.user %}
+                    {# <a class="btn btn-primary" href="{{ path ('app_login') }}">connexion</a> #}
+
+        			<a href="" class="btn btn-primary">Réserver</a>
+            {% else %}
+                    <p>connectez-vous ou créer votre compte pour réserver</p>
+                <a class="btn btn-primary" href="{{ path ('app_register') }}">création de compte</a>
+
+					<a class="btn btn-primary" href="{{ path ('app_login') }}">connexion</a>
+	    {% endif %}
+    </section>
+	
+	{# {% if app.user %}
 
 
+		    {{ form_start(formComment) }}
+
+		    {{ form_widget(formComment.content,
+                 {
+                    attr: {
+                     placeholder: "Ecrire un commentaire"
+
+                            }
+             }) }}
+<button type="submit" class="btn btn-primary mt-2">Envoyer</button>
+
+		    {{ form_end(formComment) }}
+            
+
+	{% else %}
 
 
+		    <p>
+			    <a href="{{ path('app_login') }}">Veuillez vous connecter</a>
+                 pour poster un commentaires
+                </p>
 
+    {% endif %} #}
 
+	
 {% endblock %}
+
+
+
+
+
